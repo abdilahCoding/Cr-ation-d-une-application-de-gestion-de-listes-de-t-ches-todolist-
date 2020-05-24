@@ -98,7 +98,7 @@
             
 		echo '
 		<li onclick="update(this);" style="'.$style.';cursor:pointer; padding-left:9px;
-" id="'.$task["todolist_id"].'">'.$task['task_text'].'</li><div class="vv"><i onclick="delet(this);" id="'.$task['task_id'].'" class="fa fa-trash  mr-1" ></i><i onclick="cha(this);" id="'.$task['task_id'].'" title="'.$task['task_text'].'"   class="fa fa-edit" data-toggle="modal" data-target="#chan"></i></div>';
+" id="'.$task["task_id"].'">'.$task['task_text'].'</li><div class="vv"><i onclick="delet(this);" id="'.$task['task_id'].'" class="fa fa-trash  mr-1" ></i><i onclick="cha(this);" id="'.$task['task_id'].'" title="'.$task['task_text'].'"   class="fa fa-edit" data-toggle="modal" data-target="#chan"></i></div>';
        
 	
 	
@@ -277,6 +277,8 @@
  
    function jax(even){
     if(event.keyCode == 13){
+
+     
         const ip = even.value; 
         const todoID= even.id; 
         console.log(todoID,ip);
@@ -301,9 +303,24 @@ var xhttp = new XMLHttpRequest();
   xhttp.send("name="+ip+"&done=false&id="+todoID);
   even.value ="";
   
-  
+    var myVar = setInterval(load, 500);
+
+function load() {
+
+
+ location.reload();
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+}
+
+
+
 }
      
+     
+
 };
 
  
@@ -326,6 +343,18 @@ var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "ajaxupdate.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id="+ID);
+
+      var myVar = setInterval(load, 500);
+
+function load() {
+
+ location.reload();
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+}
+
   
     
 };
@@ -381,6 +410,19 @@ var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "ajaxdelete.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id="+id);
+
+
+    var myVar = setInterval(load, 500);
+
+function load() {
+
+ location.reload();
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+}
+
   
     
 };

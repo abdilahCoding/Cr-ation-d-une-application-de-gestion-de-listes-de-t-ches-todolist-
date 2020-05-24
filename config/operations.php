@@ -229,7 +229,7 @@ function insertTodo($name,$color,$user_id){
             global $db;
                
          
-    $stmt = $db->connection->prepare("UPDATE task SET  done= ?  WHERE todolist_id = ? ");
+    $stmt = $db->connection->prepare("UPDATE task SET  done= ?  WHERE task_id = ? ");
 
     $stmt->execute(array($done,$id));
 

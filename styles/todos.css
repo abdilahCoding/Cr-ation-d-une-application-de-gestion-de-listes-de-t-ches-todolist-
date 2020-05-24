@@ -103,8 +103,8 @@ body{
 .bns{
 
 font-size: 20px;
-margin-top:98px;
-margin-left: 1300px
+margin-left: 950px;
+margin-bottom: 30px;
 }
 
 @media (max-width: 800px){
